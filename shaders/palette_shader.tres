@@ -1,0 +1,6 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = { "fragment":"uniform texture palette;\nuniform float palette_size;\nuniform float palette_index;\n\nif (COLOR.a>0.0)\n{\n\t//normalize the color to the image coordinates, but only use the red channel\n\tfloat redchannel = (256-(COLOR.r*255.0)+1)/256.0;\n\tCOLOR = tex(palette, vec2(redchannel, palette_index/palette_size));\n}", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
